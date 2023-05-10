@@ -6,11 +6,11 @@ void Figura::move(float Alpha,QPainter *Painter)
     dy=halflen*sin(Alpha);
     draw(Painter);
 }
-void MyLine::draw(QPainter *Painter)
+void MyLine::draw(QPainter *Painter)//отрезок
 {
     Painter->drawLine(x+dx,y+dy,x-dx,y-dy);
 }
-void MyRect::draw(QPainter *Painter)
+void MyRect::draw(QPainter *Painter)//квадрат
 {
     Painter->drawLine(x+dx,y+dy,x+dy,y-dx);
     Painter->drawLine(x+dy,y-dx,x-dx,y-dy);

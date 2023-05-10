@@ -4,7 +4,7 @@
 
 MainWindow::MainWindow()
 {
-    codec = QTextCodec::codecForName("UTF-8");
+    codec = QTextCodec::codecForName("UTF-8");// смена кодировки для русского языка
     this->setWindowTitle(codec->toUnicode("Обработка событий"));
     area = new Area(this);
     btn = new QPushButton(codec->toUnicode("Завершить"),this );

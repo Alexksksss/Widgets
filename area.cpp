@@ -4,7 +4,7 @@ Area::Area(QWidget *parent):QWidget(parent)
     setFixedSize(QSize(300,200));
     myline=new MyLine(80,100,50);
     myrect=new MyRect(220,100,50);
-    alpha=0;
+    alpha=0;//угол поворота
 }
 void Area::showEvent(QShowEvent *)
 {
@@ -31,7 +31,7 @@ void Area::hideEvent(QHideEvent *)
 {
     killTimer(myTimer); // уничтожить таймер
 }
-Area::~Area()
+Area::~Area()//деструктор
 {
     delete myline;
     delete myrect;
