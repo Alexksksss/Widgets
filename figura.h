@@ -6,7 +6,7 @@
 class Figura
 {
 protected:
-    int x,y,halflen,dx,dy,r;
+    int x,y,halflen,dx,dy;
     virtual void draw(QPainter *Painter)=0;
 public:
     Figura(int X,int Y,int Halflen):
