@@ -92,7 +92,8 @@ void MainWindow::calc(){
     else {
         QMessageBox msgBox(QMessageBox::Information, codec->toUnicode("Возведение в квадрат."),
             codec->toUnicode("Введена пустая строка."), QMessageBox::Ok); //выводим сообщение об ошибке
-    msgBox.exec();}
+        msgBox.exec();
+    }
 
 }
 
