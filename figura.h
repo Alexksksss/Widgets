@@ -20,6 +20,7 @@ protected:
     void draw(QPainter *Painter);
 public:
     MyLine(int x,int y,int halflen):Figura(x,y,halflen){}
+    virtual ~MyLine() {} // Виртуальный деструктор
 };
 
 class MyRect:public Figura
@@ -28,6 +29,7 @@ protected:
     void draw(QPainter *Painter);
 public:
     MyRect(int x,int y,int halflen):Figura(x,y,halflen){}
+    virtual ~MyRect() {} // Виртуальный деструктор
 };
 
 #endif // FIGURA_H
