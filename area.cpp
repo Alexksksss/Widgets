@@ -3,20 +3,9 @@
 Area::Area(QWidget *parent):QWidget(parent)
 {
     setFixedSize(QSize(300,200));
+    myline=new MyLine(80,100,50);
+    myrect=new MyRect(220,100,50);
 
-    try{
-        myline=new MyLine(80,100,50);
-    }
-    catch(std::bad_alloc const&){
-        std::cout<<"Bad alloc in myline";
-    }
-
-    try{
-        myrect=new MyRect(220,100,50);
-    }
-    catch(std::bad_alloc const&){
-        std::cout<<"Bad alloc in myrect";
-    }
     alpha=0;//угол поворота
 }
 void Area::showEvent(QShowEvent *)
@@ -27,8 +16,10 @@ void Area::paintEvent(QPaintEvent *)
 {
     QPainter painter(this);
     painter.setPen(Qt::red);
-    myline->move(alpha,&painter);
-    myrect->move(alpha*(-0.5),&painter);
+    if(myline!=nullptr && myrect!=nullptr){
+        myline->move(alpha,&painter);
+        myrect->move(alpha*(-0.5),&painter);
+    }
 }
 void Area::timerEvent(QTimerEvent *event)
 {
@@ -46,8 +37,8 @@ void Area::hideEvent(QHideEvent *)
 }
 Area::~Area()//деструктор
 {
-    if(myline!=nullptr)
-        delete myline;
-    if(myrect!=nullptr)
-        delete myrect;
+    delete myline;
+    delete myrect;
+    myline = nullptr;
+    myrect = nullptr;
 }
